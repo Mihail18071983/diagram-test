@@ -1,0 +1,103 @@
+.dropdown {
+  position: relative;
+  width: 240px;
+  height: 140px;
+  background-color: #d1e7dd;
+  border-radius: 4px;
+  &::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 235px;
+    height: 72px;
+    background-color: #fff;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px;
+  }
+}
+
+.dropdownToggle {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 230px;
+  height: 40px;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+  &:focus {
+    outline: none;
+  }
+}
+
+.dropdownMenu {
+  width: 235px;
+  position: absolute;
+  bottom: -180%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 6px 8px;
+}
+
+.checkboxText {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid #eaf2ff;
+  padding: 8px 10px;
+}
+
+.checkbox {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.icon_check_wrapper {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #95befc;
+  border-radius: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  .checkbox:checked + & {
+    border: none;
+  }
+}
+
+.icon_check {
+  opacity: 0;
+  width: 15px;
+  height: 15px;
+  .checkbox:checked + .icon_check_wrapper > & {
+    background-color: #95befc;
+    fill: #ffff;
+    opacity: 1;
+  }
+}
+
+.icon_check .checkbox:checked + .icon-check-wrapper {
+  border-radius: 4px;
+  background-color: #95befc;
+  fill: var(--main-light-color);
+  opacity: 1;
+}

@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    align-items: flex-end;
+}
+
+.addNode {
+    position: absolute;
+    right:15%;
+    top:35%;
+    transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+    background-color: #6f9472;
+    padding: 5px 10px;
+    border-radius: 5px;
+    &:hover {
+        background-color: aqua;
+    }
+}
