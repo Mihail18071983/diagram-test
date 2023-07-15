@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from "react";
-import { Handle, Position, useUpdateNodeInternals } from "reactflow";
+import { Handle, Position } from "reactflow";
 import Dropdown from "../DropDown";
 import { onAddNode, onUpdateNode } from "../../features/flow/flowSlice";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
@@ -14,7 +14,6 @@ interface CustomNodeProps {
 
 export default function CustomNode(props: CustomNodeProps) {
   const dispatch = useAppDispatch();
-  const updateNodeInternals = useUpdateNodeInternals();
 
   const lastNodeIndex = useAppSelector((state) => state.flow.nodes).length;
 
@@ -25,35 +24,31 @@ export default function CustomNode(props: CustomNodeProps) {
   const onChange = useCallback(
     (items: number[]) => {
       dispatch(onUpdateNode({ id: nodeId, data: items }));
-      updateNodeInternals(nodeId);
     },
-    [dispatch, nodeId, updateNodeInternals]
+    [dispatch, nodeId]
   );
 
   return (
     <>
-      <Handle
-        type="target"
-        position={Position.Top}
-        isValidConnection={(connection) => connection.source === nodeId}
-      />
+      <Handle type="source" position={Position.Right} id={nodeId} />
       <Handle
         type="target"
         position={Position.Left}
         isValidConnection={(connection) => connection.source === nodeId}
-      />
-      <Handle
-        type="target"
-        position={Position.Right}
-        isValidConnection={(connection) => connection.source === nodeId}
+        onConnect={(params) => console.log('handle onConnect', params)}
+        style={{ background: '#6b5375' }}
       />
       <div className={styles.container}>
         <Dropdown onChange={onChange} savedValues={props.data.values} />
         {+props.id === lastNodeIndex && (
-          <button className={styles.addNode} onClick={() => dispatch(onAddNode())}>Add Node</button>
+          <button
+            className={styles.addNode}
+            onClick={() => dispatch(onAddNode())}
+          >
+            Add Node
+          </button>
         )}
       </div>
-      <Handle type="source" position={Position.Bottom} id="a" />
     </>
   );
 }

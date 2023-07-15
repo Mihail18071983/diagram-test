@@ -9,7 +9,7 @@ import {
   OnEdgesChange,
   applyNodeChanges,
   applyEdgeChanges,
-  OnConnect
+  OnConnect,
 } from "reactflow";
 
 export interface NodesState {
@@ -40,9 +40,9 @@ export const flowSlice = createSlice({
     onEdgesChange: (state, action: PayloadAction<EdgeChange[]>) => {
       state.edges = applyEdgeChanges(action.payload, state.edges);
     },
+
     onAddNode: (state) => {
       const lastNode: Node = state.nodes[state.nodes.length - 1];
-
       state.nodes.push({
         id: `${state.nodes.length + 1}`,
         type: "selector",
@@ -61,6 +61,7 @@ export const flowSlice = createSlice({
         target: `${state.nodes.length}`,
       });
     },
+
     onUpdateNode: (state, action: PayloadAction<NodeUpdate>) => {
       state.nodes = state.nodes.map((node, index) => {
         if (index >= +action.payload.id - 1) {
@@ -79,7 +80,7 @@ export const flowSlice = createSlice({
     resetNodes: (state) => {
       state.nodes = nodesState;
       state.edges = edgesState;
-    }
+    },
   },
 });
 
