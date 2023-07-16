@@ -20,6 +20,11 @@ export interface NodesState {
   onConnect: OnConnect;
 }
 
+enum MarkerType {
+  Arrow = "arrow",
+  ArrowClosed = "arrowclosed",
+}
+
 export interface NodeData {
   values: string[] | number[];
   label: string;
@@ -59,6 +64,8 @@ export const flowSlice = createSlice({
         id: `e-${state.edges.length + 1}-${state.edges.length + 2}`,
         source: `${state.nodes.length - 1}`,
         target: `${state.nodes.length}`,
+        type: "step",
+        markerEnd: { type: MarkerType.Arrow, width: 20, height: 20 },
       });
     },
 

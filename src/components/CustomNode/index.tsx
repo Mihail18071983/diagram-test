@@ -30,13 +30,24 @@ export default function CustomNode(props: CustomNodeProps) {
 
   return (
     <>
-      <Handle type="source" position={Position.Right} id={nodeId} />
+      <Handle
+        type="source"
+        position={Position.Right}
+        id={nodeId}
+        style={{
+          border: "none",
+          background: "#ABB5BD",
+        }}
+      />
       <Handle
         type="target"
         position={Position.Left}
         isValidConnection={(connection) => connection.source === nodeId}
-        onConnect={(params) => console.log('handle onConnect', params)}
-        style={{ background: '#6b5375' }}
+        onConnect={(params) => console.log("handle onConnect", params)}
+        style={{
+          border: "none",
+          background: "#ABB5BD",
+        }}
       />
       <div className={styles.container}>
         <Dropdown onChange={onChange} savedValues={props.data.values} />

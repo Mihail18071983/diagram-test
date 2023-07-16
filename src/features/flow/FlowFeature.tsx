@@ -5,18 +5,19 @@ import { onNodesChange, onEdgesChange, resetNodes } from "./flowSlice";
 import ReactFlow from "reactflow";
 import { onAddNode } from "./flowSlice";
 import CustomNode from "../../components/CustomNode";
-
 import "reactflow/dist/style.css";
+
+
 
 export default function ReactFlowFeature() {
   const dispatch = useAppDispatch();
   const nodes = useAppSelector((state) => state.flow.nodes);
   const edges = useAppSelector((state) => state.flow.edges);
   const nodeTypes: NodeTypes = useMemo(() => ({ selector: CustomNode }), []);
-  
   const handleConnect = () => { 
     dispatch(onAddNode())
   }
+
 
   return (
     <>
