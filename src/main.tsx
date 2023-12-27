@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { ReactFlowProvider } from "reactflow";
 import { store } from "./app/store";
+import "@fontsource/ibm-plex-sans";
+import "./index.css"
 import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

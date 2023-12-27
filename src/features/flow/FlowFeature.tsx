@@ -7,21 +7,23 @@ import { onAddNode } from "./flowSlice";
 import CustomNode from "../../components/CustomNode";
 import "reactflow/dist/style.css";
 
-
-
 export default function ReactFlowFeature() {
   const dispatch = useAppDispatch();
   const nodes = useAppSelector((state) => state.flow.nodes);
   const edges = useAppSelector((state) => state.flow.edges);
   const nodeTypes: NodeTypes = useMemo(() => ({ selector: CustomNode }), []);
-  const handleConnect = () => { 
-    dispatch(onAddNode())
-  }
-
+  const handleConnect = () => {
+    dispatch(onAddNode());
+  };
 
   return (
     <>
-      <button onClick={() => dispatch(resetNodes())}>Cкинути в початковий стан</button>
+      <button
+        style={{ marginTop: "20px", marginLeft: "50px" }}
+        onClick={() => dispatch(resetNodes())}
+      >
+        Cкинути в початковий стан
+      </button>
       <ReactFlow
         nodes={nodes}
         edges={edges}

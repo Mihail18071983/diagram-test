@@ -50,6 +50,8 @@
 
 .checkboxText {
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
   gap: 12px;
   align-items: center;
   border: 1px solid #eaf2ff;
