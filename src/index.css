@@ -25,7 +25,7 @@ a:hover {
 }
 
 body {
-  font-family:Ibm-plex-sans ;
+  font-family:"Ibm-plex-sans", sans-serif ;
   font-size: 14px;
   font-weight: 400;
   color:#37352F;
