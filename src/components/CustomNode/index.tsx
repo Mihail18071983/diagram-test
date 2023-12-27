@@ -56,7 +56,7 @@ export default function CustomNode(props: CustomNodeProps) {
             className={styles.addNode}
             onClick={() => dispatch(onAddNode())}
           >
-            Add Node
+            Додати картку
           </button>
         )}
       </div>

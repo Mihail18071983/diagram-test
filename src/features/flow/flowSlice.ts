@@ -56,7 +56,7 @@ export const flowSlice = createSlice({
           values: (lastNode.data as NodeData).values,
         },
         position: {
-          x: lastNode.position.x + 100,
+          x: lastNode.position.x + 300,
           y: lastNode.position.y + 200,
         },
       });

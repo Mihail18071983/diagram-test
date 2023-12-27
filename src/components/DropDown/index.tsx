@@ -21,12 +21,12 @@ const Dropdown = ({ onChange, savedValues }: IProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const options: Option[] = [
-    { id: 1, label: "Option 1" },
-    { id: 2, label: "Option 2" },
-    { id: 3, label: "Option 3" },
-    { id: 4, label: "Option 4" },
-    { id: 5, label: "Option 5" },
-    { id: 6, label: "Option 6" },
+    { id: 1, label: "Варіант 1" },
+    { id: 2, label: "Варіант 2" },
+    { id: 3, label: "Варіант 3" },
+    { id: 4, label: "Варіант 4" },
+    { id: 5, label: "Варіант 5" },
+    { id: 6, label: "Варіант 6" },
   ];
 
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -46,7 +46,7 @@ const Dropdown = ({ onChange, savedValues }: IProps) => {
   return (
     <div className={styles.dropdown}>
       <button className={styles.dropdownToggle} onClick={toggleDropdown}>
-        Choose option {savedValues?.join("-") || ""}
+        Вибрати значення {savedValues?.join("-") || ""}
         {isOpen ? <ArrowUp /> : <ArrowDown />}
       </button>
       {isOpen && (

@@ -21,7 +21,7 @@ export default function ReactFlowFeature() {
 
   return (
     <>
-      <button onClick={() => dispatch(resetNodes())}>Reset Flow</button>
+      <button onClick={() => dispatch(resetNodes())}>Cкинути в початковий стан</button>
       <ReactFlow
         nodes={nodes}
         edges={edges}
