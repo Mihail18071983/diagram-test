@@ -1,4 +1,3 @@
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -25,10 +24,10 @@ a:hover {
 }
 
 body {
-  font-family:"Ibm-plex-sans", sans-serif ;
+  font-family: "Ibm-plex-sans";
   font-size: 14px;
   font-weight: 400;
-  color:#37352F;
+  color: #37352f;
   margin: 0;
   display: flex;
   place-items: center;
@@ -42,6 +41,8 @@ h1 {
 }
 
 button {
+  font-family: inherit;
+  font-size: inherit;
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 5px 10px;
